@@ -1,5 +1,5 @@
 
-'use strict'; 
+'use strict';
 
 var router = require('express').Router(),
   session = require('express-session'),
@@ -20,7 +20,7 @@ router.use(function (req, res, next) {
 });
 
 router.use(session({
-  secret: 'tongiscool',
+  secret: require('../../secrets').session,
   resave: false,
   saveUninitialized: false
 }));
@@ -38,4 +38,3 @@ router.use(passport.initialize());
 router.use(passport.session());
 
 module.exports = router;
-
